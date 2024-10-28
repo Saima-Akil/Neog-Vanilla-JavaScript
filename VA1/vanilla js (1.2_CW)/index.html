@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vanilla JS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <label for="nameInput">Enter your name:</label>
+    <input type="text" id="nameInput" />
+    <button id="greetButton">Greet</button>
+    <p id="ShowGreetingMessage"></p>
+
+   
+
+    <label for="emailInput">Enter your email:</label>
+    <input type="email" id="emailInput" />
+    <button id="ValidateEmailButton">Validate Email</button>
+    <p id="emailValidationResult"></p>
+
+
+
+    <label for="numberInput">Enter a number</label>
+    <input type = "text" id="numberInput"/>
+    <button id="calculateSquareButton">Calculate Square</button>
+    <p id="squareResult"></p>
+
+
+
+    <label for="urlInput">Enter a URL</label>
+    <input type="text" id="urlInput"/>
+    <button id="urlButton">Show Link</button>
+    <p id="linkResult"></p>
+
+    <label for="sentenceInput">Enter any sentence</label>
+    <input type="text" id="sentenceInput"/>
+    <button id="countButton">Count Words</button>
+    <p id="countResult"></p>
+    
+
+
+    <script>
+      const nameInput = document.getElementById("nameInput");
+      const greetButton = document.getElementById("greetButton");
+      const greetingMessage = document.getElementById("ShowGreetingMessage");
+      greetButton.addEventListener("click", function () {
+        const userName = nameInput.value;
+        greetingMessage.textContent = `hello, ${userName}`;
+      });
+
+      const emailInput = document.getElementById("emailInput");
+      const ValidateEmailButton =  document.getElementById("ValidateEmailButton");
+      const ValidationResult = document.getElementById("emailValidationResult");
+      ValidateEmailButton.addEventListener("click", function () {
+        const email = emailInput.value;
+        const atIndex = email.indexOf("@");
+        const dotIndex=email.indexOf(".");
+        if(atIndex > 0 && dotIndex > atIndex){
+            emailValidationResult.textContent= "Valid email address."
+        }
+        else{
+            emailValidationResult.textContent="Invalid email address."
+
+        }
+        
+        });
+
+
+        const numberInput = document.getElementById("numberInput");
+        const calculateSquareButton= document.getElementById("calculateSquareButton");
+        const squareResult = document.getElementById("squareResult");
+        calculateSquareButton.addEventListener("click",function(){
+        const numberValue = parseFloat(numberInput.value);
+        if(!isNaN(numberValue)){
+            const square = numberValue * numberValue;
+            squareResult.textContent= `square of ${numberValue} is ${square}.`
+        }
+        else{
+            squareResult.textContent="enter a valid number."
+        }
+
+
+      
+
+        });
+
+
+
+
+
+        const urlInput=document.getElementById("urlInput");
+        const urlButton=document.getElementById("urlButton");
+        const linkResult=document.getElementById("linkResult");
+          urlButton.addEventListener('click',function(){
+          const url = urlInput.value;
+          linkResult.innerHTML = `<a href="${url}" target= "_blank">${url}</a>`
+
+          });
+
+
+          const sentenceInput=document.getElementById("sentenceInput");
+          const countButton=document.getElementById("countButton");
+          const countResult=document.getElementById("countResult");
+          countButton.addEventListener('click',function(){
+           const sentence= sentenceInput.value;
+           const words = sentence.split(" ");
+           const wordCount=words.length;
+           countResult.textContent=`word count: ${wordCount}`
+          });
+
+         
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanilla js</title>
+</head>
+<body>
+    <label for="bookreviewTextarea">Enter your book review:</label>
+    <textarea id="bookreviewTextarea" rows="3" cols="30"></textarea>
+    <button id="bookreviewBtn">Display Book Review</button>
+    <p id="bookreviewResult"></p>
+
+    <label for="personalbioTextarea">Enter your personal bio:</label>
+    <textarea id="personalbioTextarea" rows="4" cols="30"></textarea>
+    <button id="personalbioBtn">Display styled Bio</button>
+    <p id="personalbioResult"></p>
+   
+
+
+    <label for="personaldiaryTextarea">Enter your personal diary entry:</label>
+    <textarea id="personaldiaryTextarea" rows="5" cols="40"></textarea>
+    <button id="personaldiaryBtn">Display Diary Entry</button>
+    <p id="personaldiaryResult"></p>
+   
+   
+    <script>
+
+
+        const bookreviewTextarea=document.getElementById("bookreviewTextarea");
+        const bookreviewBtn=document.getElementById("bookreviewBtn");
+        const bookreviewResult=document.getElementById("bookreviewResult");
+        bookreviewBtn.addEventListener('click',function(){
+            const book=bookreviewTextarea.value;
+            bookreviewResult.textContent=`Your book review:${book}`;
+        });
+
+
+        const personalbioTextarea=document.getElementById("personalbioTextarea");
+        const personalbioBtn=document.getElementById("personalbioBtn");
+        const personalbioResult=document.getElementById("personalbioResult");
+        personalbioBtn.addEventListener('click',function(){
+            const personalbio=personalbioTextarea.value;
+            personalbioResult.innerHTML=`<i>${personalbio}</i>`;
+        });
+
+        const personaldiaryTextarea=document.getElementById("personaldiaryTextarea");
+        const personaldiaryBtn=document.getElementById("personaldiaryBtn");
+        const personaldiaryResult=document.getElementById("personaldiaryResult");
+        personaldiaryBtn.addEventListener('click',function(){
+            const personaldiary=personaldiaryTextarea.value;
+            const currentDateTime=new Date().toLocaleString();
+            personaldiaryResult.innerHTML=`<p><strong>${currentDateTime}</strong></p><p>${personaldiary}</p>`;
+        });
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

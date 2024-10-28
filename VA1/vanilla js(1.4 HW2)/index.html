@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla js</title>
+</head>
+<body>
+    <label for="javascriptTextarea"> What is JavaScript? </label>
+    <textarea id="javascriptTextarea" rows="5" cols="40"></textarea>
+    <button id="javascriptBtn">Display Answer</button>
+    <p id="javascriptResult"></p>
+    <button id="javascriptstyleBtn">Count Words</button>
+
+    <br>
+    <br>
+
+    <label for="todoTextarea">List Todos</label>
+    <textarea id="todoTextarea" rows="5" cols="45"></textarea>
+    <button id="todoBtn">Display Todos</button>
+    <p id="todoResult"></p>
+    <button id="todostyleBtn">Count Todos</button>
+
+    <br>
+    <label for="passwordInput">Enter Password</label>
+    <input type="text" id="passwordInput"/>
+    <button id="passwordBtn">Display Password</button>
+    <p id="passwordResult"></p>
+    <button id="passwordstyleBtn">Check Password</button>
+
+
+
+    <script>
+        
+        const javascriptTextarea=document.getElementById("javascriptTextarea");
+        const javascriptBtn=document.getElementById("javascriptBtn");
+        const javascriptResult=document.getElementById("javascriptResult");
+        const javascriptstyleBtn=document.getElementById("javascriptstyleBtn");
+        javascriptBtn.addEventListener('click',function(){
+            const word=javascriptTextarea.value;
+            javascriptResult.textContent=`Your Answer:${word}`;
+
+        });
+
+        javascriptstyleBtn.addEventListener('click',function(){
+            const word=javascriptTextarea.value.trim();
+            const wordCount=word.split(' ');
+
+            if(wordCount.length<=7){
+                javascriptResult.innerHTML=`Your Answer:${word} <br> <br> Good`;
+                javascriptResult.style.color="green";
+
+            }
+            else{
+                javascriptResult.innerHTML=`Your Answer:${word}<br> <br> Word count exceeding`;
+                javascriptResult.style.color="red";
+            }
+    
+            
+            
+        });
+
+        const todoTextarea=document.getElementById("todoTextarea");
+        const todoBtn=document.getElementById("todoBtn");
+        const todoResult=document.getElementById("todoResult");
+        const todostyleBtn=document.getElementById("todostyleBtn");
+        todoBtn.addEventListener('click',function(){
+
+            const todo=todoTextarea.value;
+            todoResult.textContent=`Your Todos: ${todo}`;
+        });
+         todostyleBtn.addEventListener('click',function(){
+            const ToDo= todoTextarea.value.trim();
+            const wordCount=ToDo.split(',');
+            todoResult.innerHTML=`Total number of todos:${wordCount.length}`;
+            todoResult.style.color="green";
+            
+         }); 
+
+         const passwordInput=document.getElementById("passwordInput");
+         const passwordBtn=document.getElementById("passwordBtn");
+         const passwordResult=document.getElementById("passwordResult");
+         const passwordstyleBtn=document.getElementById("passwordstyleBtn");
+
+         passwordBtn.addEventListener('click',function(){
+            const password=passwordInput.value;
+            passwordResult.textContent=`Your Password:${password}`;
+            
+         });
+         passwordstyleBtn.addEventListener('click',function(){
+            const password=passwordInput.value.trim();
+            const specialChar=/[@ ! $]/.test(password);
+
+            if( password.length >=5 && specialChar){
+                passwordResult.textContent="Password Accepeted";
+                passwordResult.style.color="green";
+
+            }
+            else{
+                 passwordResult.textContent = "Invalid Password.Password should be more than 5 character and must contain @ or ! or $ symbol."
+                 passwordResult.style.color="red";
+
+            }
+
+         
+         });
+         
+    
+    </script>
+
+    
+</body>
+</html>

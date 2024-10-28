@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS</title>
+</head>
+<body>
+    <label for="numberInput">Enter your age</label>
+   <input type="text" id="numberInput"/>
+   <button id= "validateButton">Validate Age</button>
+   <p id="validateResult"></p>
+
+
+   <label for ="textInput">Enter Your Favourite Animal</label>
+   <input type="text" id="textInput"/>
+   <button id="animalButton">Display Button</button>
+   <p id ="animalResult"></p>
+
+   
+   <label for ="colorInput">Enter Your Favourite Color</label>
+   <input type="text" id="colorInput"/>
+   <button id="colorButton">Display Button</button>
+   <p id ="colorResult"></p>
+
+
+   <label for ="myTextInput">Yes/No ques</label>
+   <input type="text" id="myTextInput"/>
+   <button id="messageButton">Display Message</button>
+   <p id ="messageResult"></p>
+
+
+   <label for="numbersInput">Enter a Number</label>
+   <input type="text" id="numbersInput"/>
+   <button id="numberButton">Check Number</button>
+   <p id="numberResult"></p>
+
+
+
+   <script>
+    const numberInput=document.getElementById("numberInput");
+    const validateButton=document.getElementById("validateButton");
+    const validateResult=document.getElementById("validateResult");
+    validateButton.addEventListener('click',function(){
+        const age=parseInt(numberInput.value)
+        const number=numberInput.value;
+        if(age > 18 && age < 100){
+            validateResult.textContent="Age is Valid";
+        } else{
+            validateResult.textContent="Age must be greater than 18 and less than 100";
+        }
+
+    });
+    const textInput=document.getElementById("textInput");
+    const animalButton =document.getElementById("animalButton");
+    const animalResult=document.getElementById("animalResult");
+    animalButton.addEventListener('click',function(){
+        const animal = textInput.value;
+        animalResult.textContent=`your favorite animal is ${animal}`;
+    });
+
+    const colorInput=document.getElementById("colorInput");
+    const colorButton =document.getElementById("colorButton");
+    const colorResult=document.getElementById("colorResult");
+    colorButton.addEventListener('click',function(){
+        const color = colorInput.value;
+        colorResult.textContent=`your favorite color is ${color}`;
+
+    });
+    const myTextInput=document.getElementById("myTextInput");
+    const messageButton=document.getElementById("messageButton");
+    const messageResult=document.getElementById("messageResult");
+    messageButton.addEventListener('click',function(){
+        const message=myTextInput.value;
+        if(message==="yes"|| message==="no"){
+            messageResult.textContent=`you said : ${message}`
+
+        } else{
+        messageResult.textContent="please enter either 'yes' or 'no'";
+        }
+       
+    });
+    const numbersInput=document.getElementById("numbersInput");
+    const numberButton= document.getElementById("numberButton");
+    const numberResult=document.getElementById("numberResult");
+
+    numberButton.addEventListener('click',function(){
+        const number=numbersInput.value;
+        if(number%2===0){
+            numberResult.textContent=`number is Even ${number}`;
+        }
+        else{
+            numberResult.textContent=`number is odd ${number}`;
+        }
+
+
+
+
+
+    })
+
+
+
+
+   </script>
+
+    
+</body>
+</html>

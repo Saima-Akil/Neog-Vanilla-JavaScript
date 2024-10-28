@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanilla js</title>
+</head>
+<body>
+    <label for="ageInput">Enter your Age:</label>
+    <input id="ageInput"/>
+    <button id="agedisplayBtn">Display Age</button>
+    <p id="ageResult"></p>
+    <button id="styleBtn">Check Eligibility</button>
+
+    <label for="studentInput">Are you a student?</label>
+    <input id="studentInput"/>
+    <button id = "studentBtn">Display Answer</button>
+    <p id="studentResult"></p>
+    <button id="studentstyleBtn">Check Eligibility</button>
+
+
+    <label for="passwordInput">Enter Password</label>
+    <input id="passwordInput"/>
+    <button id="passwordBtn">Display Password</button>
+    <p id="passwordResult"></p>
+    <button id="passwordstyleBtn">Check Password</button>
+     
+    <script>
+        const ageInput=document.querySelector("#ageInput");
+        const agedisplayBtn=document.querySelector("#agedisplayBtn");
+        const ageResult=document.querySelector("#ageResult");
+        const styleBtn=document.querySelector("#styleBtn");
+        agedisplayBtn.addEventListener('click',function(){
+            const age=ageInput.value;
+            ageResult.textContent=`Your Age:${age}`;
+        
+        if(age >=18){
+            styleBtn.addEventListener('click',function(){
+                ageResult.style.color="red"
+            });
+           }
+        else{
+            ageResult.style.color="green";
+        }
+    });
+
+    const studentInput=document.querySelector("#studentInput");
+    const  studentBtn=document.querySelector("#studentBtn");
+    const studentResult=document.querySelector("#studentResult");
+    const studentstyleBtn=document.querySelector("#studentstyleBtn");
+    studentBtn.addEventListener('click',function(){
+        const student=studentInput.value;
+        
+        studentstyleBtn.addEventListener('click',function(){
+
+        })
+
+        if(student==="yes"|| student==="no"){
+            studentResult.textContent=`Your Answer:${student}`;
+            studentResult.style.color="black";
+
+        }
+        else{
+            studentResult.textContent="invalid answer";
+          
+        }
+    });
+    studentstyleBtn.addEventListener('click',function(){
+        const student=studentInput.value;
+        if(student==="yes"){
+            studentResult.textContent="you are eligible";
+            studentResult.style.color="green";
+        }
+        else if(student==="no"){
+            studentResult.textContent="you are  not eligible";
+            studentResult.style.color="blue";
+        }
+        else{
+            studentResult.textContent="invalid answer";
+            studentResult.style.color="black";
+        }
+    });
+
+
+    const passwordInput=document.querySelector("#passwordInput");
+    const passwordBtn=document.querySelector("#passwordBtn");
+    const passwordResult=document.querySelector("#passwordResult");
+    const passwordstyleBtn=document.querySelector("#passwordstyleBtn");
+    passwordBtn.addEventListener('click',function(){
+        const password=passwordInput.value;
+        passwordResult.textContent=`Your Password:${password}`;
+        passwordResult.style.color="black";
+    });
+    passwordstyleBtn.addEventListener('click',function(){
+        const password=passwordInput.value;
+        const atIndex=password.indexOf("@");
+        console.log(atIndex);
+        if(atIndex!==-1){
+            passwordResult.textContent="Password Accepted"
+            passwordResult.style.color="green"
+        }
+        else{
+            passwordResult.textContent=" Invalid Password. Password must contain @ symbol";
+            passwordResult.style.color="red";
+        }
+        
+    });
+
+
+
+       
+    </script>
+    
+</body>
+</html>
