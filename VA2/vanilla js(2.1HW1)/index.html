@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanilla js</title>
+</head>
+<body>
+    <label>Program 1: Select multiple sports:</label>
+    <input type="checkbox" name="sports" value="Soccer"/>Soccer
+    <input type="checkbox" name="sports" value="Basketball"/>Basketball
+    <input type="checkbox" name="sports" value="Tennis"/>Tennis
+    <button id="sportsBtn">Display Selected Sports</button>
+    <p id="sportsResult"></p>
+
+    <label>Program 2: Choose multiple vacation destinations:</label>
+    <input type="checkbox" name="vacations" value="Beach"/>Beach
+    <input type="checkbox" name="vacations" value="Mountains"/>Mountains
+    <input type="checkbox" name="vacations" value="City"/>City
+    <button id="destinationBtn">Display Selected Destinations</button>
+    <p id="destinationResult"></p>
+
+    <label>Program 3: Select multiple movie genres:</label>
+    <input type="checkbox" name="movies" value="Action"/>Action
+    <input type="checkbox" name="movies" value="Comedy"/>Comedy
+    <input type="checkbox" name="movies" value="Drama"/>Drama
+    <button id="moviesBtn">Display Selected Genres</button>
+    <p id="moviesResult"></p>
+
+
+    <label>Program 4: Select multiple items from a restaurant menu:</label>
+    <input type="checkbox" name="items" value="Burger"/>Burger
+    <input type="checkbox" name="items" value="Pizza"/>Pizza
+    <input type="checkbox" name="items" value="Salad"/>Salad
+    <button id="itemsBtn">Display Selected Genres</button>
+    <p id="itemsResult"></p>
+
+    <label>Program 5: Select multiple fruits</label>
+    <input type="checkbox"  name="fruits" value="Apple"/>Apple
+    <input type="checkbox"  name="fruits" value="Banana"/>Banana
+    <input type="checkbox"  name="fruits" value="Orange"/>Orange
+    <button id="fruitBtn">Display Selected Fruits</button>
+    <p id="fruitResult"></p>
+
+
+
+    <script>
+
+        const sportsCheckBoxes=document.getElementsByName("sports");
+        const sportsBtn=document.getElementById("sportsBtn");
+        const sportsResult=document.getElementById("sportsResult");
+        sportsBtn.addEventListener('click',function(){
+            const selectedSports=[];
+
+            for(let i=0;i<sportsCheckBoxes.length;i++){
+                if(sportsCheckBoxes[i].checked){
+                    selectedSports.push(sportsCheckBoxes[i].value);
+                
+                    }
+
+                    }
+                    sportsResult.innerHTML=`Selected Sports : ${selectedSports.join(", ")}`;
+                });
+        const vacationCheckBoxes=document.getElementsByName("vacations")
+        const destinationBtn=document.getElementById("destinationBtn");
+        const destinationResult=document.getElementById("destinationResult");
+        destinationBtn.addEventListener('click',function(){
+            const selectedDestination=[];
+            for(let i = 0; i < vacationCheckBoxes.length;i++){
+                if(vacationCheckBoxes[i].checked){
+                            selectedDestination.push(vacationCheckBoxes[i].value);
+                    
+                    }
+
+                    }
+                    
+                    destinationResult.innerHTML=`Selected Sports:${selectedDestination.join(", ")}`
+                });
+
+                const moviesCheckBoxes=document.getElementsByName("movies");
+                const moviesBtn=document.getElementById("moviesBtn");
+                const moviesResult=document.getElementById('moviesResult');
+
+                moviesBtn.addEventListener('click',function(){
+                    const selectedMovies=[];
+                    for( let i =0; i < moviesCheckBoxes.length;i++){
+                        if(moviesCheckBoxes[i].checked){
+                            selectedMovies.push(moviesCheckBoxes[i].value);
+                        }
+                    }
+                    moviesResult.innerHTML=`Selected movies genres:${selectedMovies.join(", ")}`;
+                });
+
+
+                const itemsCheckBoxes=document.getElementsByName("items")
+                const itemsBtn=document.getElementById("itemsBtn");
+                const itemsResult=document.getElementById("itemsResult");
+                itemsBtn.addEventListener('click',function(){
+                    const selectedItems=[];
+                    for( let i = 0 ; i < itemsCheckBoxes.length;i++){
+                        if(itemsCheckBoxes[i].checked){
+                            selectedItems.push(itemsCheckBoxes[i].value);
+                        }
+                    }
+                    itemsResult.innerHTML=`Selected Movies Genres: ${selectedItems.join(", ")}`;
+
+
+
+                });
+                const fruitsCheckBoxes=document.getElementsByName("fruits");
+                const fruitBtn=document.getElementById("fruitBtn");
+                const fruitResult=document.getElementById("fruitResult");
+
+                fruitBtn.addEventListener('click',function(){
+                    const selectedFruits=[];
+                    for (let i =0;i<fruitsCheckBoxes.length; i++){
+                        if(fruitsCheckBoxes[i].checked){
+                            selectedFruits.push(fruitsCheckBoxes[i].value);
+                        }
+                    }
+                    fruitResult.textContent=`Selected Fruits: ${selectedFruits.join(", ")}`;
+                });
+
+    </script>
+
+    
+    
+</body>
+</html>

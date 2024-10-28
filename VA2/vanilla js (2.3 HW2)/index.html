@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanilla js</title>
+</head>
+<body>
+    <label>Choose a season:</label>
+    <select id="seasonSelect">
+        <option value="summer">Summer</option>
+        <option value="fall">Fall</option>
+        <option value="winter">Winter</option>
+        <option value="spring">Spring</option>
+    </select>
+    <button id="seasonBtn">Display Typical Weather</button>
+    <p id="seasonResult"></p>
+
+    <label>Choose a movie genre:</label>
+    <select id="moviegenreSelect">
+        <option value="sciencefiction">Science Fiction</option>
+        <option value="mystery">Mystery</option>
+        <option value="romance">Romance</option>
+    </select>
+    <button id="moviegenreBtn">Display Movie Recommendation</button>
+    <p id="moviegenreResult"></p>
+
+    <label>Choose a pet:</label>
+    <select id="petSelect">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="fish">Fish</option>
+    </select>
+    <button id="petBtn">Display Fun Fact</button>
+    <p id="petResult"></p>
+
+    <label>Choose a planet:</label>
+    <select id="planetSelect">
+        <option value="earth">Earth</option>
+        <option value="mars">Mars</option>
+        <option value="jupiter">Jupiter</option>
+    </select>
+    <button id="planetBtn">Display Fun Fact</button>
+    <p id="planetResult"></p>
+
+
+    <script>
+        const seasonSelect=document.getElementById("seasonSelect");
+        const seasonBtn=document.getElementById("seasonBtn");
+        const seasonResult=document.getElementById("seasonResult");
+        seasonBtn.addEventListener('click',function(){
+
+            const selectedSeason=seasonSelect.value;
+            if(selectedSeason==="summer"){
+                seasonResult.textContent="Typical Weather: Hot temperature and sunny days."
+            }
+            else if(selectedSeason==="fall"){
+                seasonResult.textContent=" Typical Weather: Cooler temperatures and falling leaves."
+            }
+            else if(selectedSeason==="winter"){
+                seasonResult.textContent="Typical Weather: Cold temperatures and snowfall."
+            }
+            else if(selectedSeason==="spring"){
+                seasonResult.textContent="Typical Weather: Mild temperatures and blooming flowers."
+            }
+            else{
+                seasonResult.textContent="";
+            }
+        });
+
+         const moviegenreSelect=document.getElementById("moviegenreSelect");
+         const moviegenreBtn=document.getElementById("moviegenreBtn");
+         const moviegenreResult=document.getElementById("moviegenreResult");
+
+         moviegenreBtn.addEventListener('click',function(){
+            const selectedMoviegenre=moviegenreSelect.value;
+            if(selectedMoviegenre==="sciencefiction"){
+                moviegenreResult.textContent=" Movie Recommendation: Dune"
+            }
+            else if(selectedMoviegenre==="mystery"){
+                 moviegenreResult.textContent=" Movie Recommendation: Gone Girl";
+
+            }
+            else if(selectedMoviegenre==="romance"){
+                moviegenreResult.textContent=" Movie Recommendation: Pride and Prejudice";
+
+            }
+            else{
+                moviegenreResult.textContent="";
+            }
+         });
+
+         const petSelect=document.getElementById("petSelect");
+         const petBtn=document.getElementById("petBtn");
+         const petResult=document.getElementById("petResult");
+
+         petBtn.addEventListener('click',function(){
+            const selectedPet=petSelect.value;
+            if(selectedPet==="dog"){
+                petResult.textContent="Fun Fact: Dogs are known for their loyalty and companionship. "
+            }
+            else if(selectedPet==="cat"){
+                 petResult.textContent="Fun Fact: Cats are independent and playful.";
+
+            }
+            else if(selectedPet==="fish"){
+                petResult.textContent="Fun Fact: Fish are the most diverse group of vertebrates";
+
+            }
+            else{
+                petResult.textContent="";
+            }
+        });
+
+        const planetSelect=document.getElementById("planetSelect");
+         const planetBtn=document.getElementById("planetBtn");
+         const planetResult=document.getElementById("planetResult");
+
+         planetBtn.addEventListener('click',function(){
+            const selectedPlanet=planetSelect.value;
+            if(selectedPlanet==="earth"){
+                planetResult.textContent="Planet Fact: Earth is the only known planet with life. . "
+            }
+            else if(selectedPlanet==="mars"){
+                 planetResult.textContent="Planet Fact: Mars is often called the 'Red Planet' due to its color .";
+
+            }
+            else if(selectedPlanet==="jupiter"){
+                planetResult.textContent="Planet Fact: Jupiter is the large planet in our solar system. ";
+
+            }
+            else{
+                planetResult.textContent="";
+            }
+        });
+    </script>
+    
+</body>
+</html>

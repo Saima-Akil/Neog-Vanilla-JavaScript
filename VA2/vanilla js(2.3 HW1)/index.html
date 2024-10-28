@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanilla js</title>
+</head>
+<body>
+    <label>Choose a movie genre:</label>
+    <select id="moviegenreSelect">
+        <option value="action">Action</option>
+        <option value="drama">Drama</option>
+        <option value="comedy">Comedy</option>
+    </select>
+    <p id="moviegenreResult"></p>
+    
+    <label>Select a weather condition:</label>
+    <select id="weatherSelect">
+        <option value="sunny">Sunny</option>
+        <option value="rainy">Rainy</option>
+        <option value="snowy">Snowy</option>
+    </select>
+    <p id="weatherResult"></p>
+    
+    <label>Select a language:</label>
+    <select id="languageSelect">
+        <option value="english">English</option>
+        <option value="spanish">Spanish</option>
+        <option value="french">French</option>
+    </select>
+    <button id="displayGreetingBtn">Display Greeting</button>
+    <p id="languageResult"></p>
+
+    <label>Choose a musical instrument:</label>
+    <select id="musicalInstrumentSelect">
+        <option value="guitar">Guitar</option>
+        <option value="piano">Piano</option>
+        <option value="violin">Violin</option>
+    </select>
+    <button id="muscialInstrumentBtn">Display Fun Fact</button>
+    <p id="musicalInstrumentResult"></p>
+
+    <label>Select a pet:</label>
+    <select id="petSelect">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="fish">Fish</option>
+    </select>
+    <button id="petBtn">Display Pet Description</button>
+    <p id="petResult"></p>
+
+
+
+
+    <script>
+
+        const moviegenreSelect=document.getElementById("moviegenreSelect");
+        const moviegenreResult=document.getElementById("moviegenreResult");
+        moviegenreSelect.addEventListener("change",function(){
+            const selectedMoviegenre=moviegenreSelect.value;
+            if(selectedMoviegenre==="action"){
+                moviegenreResult.textContent="Recommendation Action Movie:The Dark Knight";
+            }
+             else if(selectedMoviegenre==="drama"){
+                moviegenreResult.textContent="Recommendation Drama Movie: The Shawshank Redemption";
+            }
+            else if(selectedMoviegenre==="comedy"){
+                moviegenreResult.textContent="Recommendation Comedy Movie: Superbad";
+
+            }else{
+                moviegenreResult.textContent=" ";
+
+            }
+            });
+
+            const weatherSelect=document.getElementById("weatherSelect");
+            const weatherResult=document.getElementById("weatherResult");
+
+            weatherSelect.addEventListener("change",function(){
+                const selectedWeather=weatherSelect.value;
+                if(selectedWeather==="rainy"){
+                    weatherResult.textContent="Activity Suggestion: Movie day indoors"
+                }
+                else if(selectedWeather==="sunny"){
+                    weatherResult.textContent="Outdoor Activity Suggestion: Picnic in the park"
+
+                }
+                else if(selectedWeather==="snowy"){
+                    weatherResult.textContent="Outdoor Activity Suggestion: Build a snowman";
+
+                }
+                else{
+                    weatherResult.textContent=" ";
+
+                }
+            });
+            const languageSelect=document.getElementById("languageSelect");
+            const displayGreetingBtn=document.getElementById("displayGreetingBtn");
+            const languageResult=document.getElementById("languageResult");
+
+            displayGreetingBtn.addEventListener('click',function(){
+                const selectedLanguage=languageSelect.value;
+                if(selectedLanguage==="spanish"){
+                    languageResult.textContent="Common Greeting: Hola!"
+                }
+                else if(selectedLanguage==="english"){
+
+                languageResult.textContent="Common Greeting: Hello!"
+                }
+                else if(selectedLanguage==="french"){
+                    languageResult.textContent="Common Greeting:Bonjour!"
+                }else{
+                    languageResult.textContent=" ";
+                }
+
+            });
+
+            const musicalInstrumentSelect=document.getElementById("musicalInstrumentSelect");
+            const musicalInstrumentBtn=document.getElementById("musicalInstrumentBtn");
+            const musicalInstrumentResult=document.getElementById("musicalInstrumentResult");
+
+            muscialInstrumentBtn.addEventListener('click',function(){
+                const selectedInstrument=musicalInstrumentSelect.value;
+                if(selectedInstrument==="guitar"){
+                    musicalInstrumentResult.textContent="Fun Fact: The guitar is one of the most popular instrument in the world."
+                }
+                else if(selectedInstrument==="piano"){
+
+                musicalInstrumentResult.textContent="Fun Fact: The piano has 88 keys";
+                }
+                else if(selectedInstrument==="violin"){
+                    musicalInstrumentResult.textContent="Fun Fact: The violin is a string instrument known for it sweet sound"
+                }else{
+                    musicalInstrumentResult.textContent=" ";
+                }
+
+            });
+
+
+            const petSelect=document.getElementById("petSelect");
+            const petBtn=document.getElementById("petBtn");
+            const petResult=document.getElementById("petResult");
+
+            petBtn.addEventListener('click',function(){
+                const selectedPet=petSelect.value;
+                if(selectedPet==="cat"){
+                    petResult.textContent="Pet Description: Cats are independent and playful."
+                }
+                else if(selectedPet==="dog"){
+
+                petResult.textContent="Pet Description: Dogs are loyal and friendly companions. ";
+                }
+                else if(selectedPet==="fish"){
+                    petResult.textContent="Pet Description: Fish are low-maintenance and peaceful pets."
+                }else{
+                    petResult.textContent=" ";
+                }
+
+            });
+    </script>
+    
+</body>
+</html>

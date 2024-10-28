@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanilla js</title>
+</head>
+<body>
+
+    <h1>Product Order Form</h1>
+    <form id="productOrderForm">
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName"/>
+    <br><br>
+    <label for="quantity">Quantity:</label>
+    <input type="number" value="1" id="quantity"/>
+    <br><br>
+   <label for="shippingAddress">Shipping Address:</label><br>
+   <textarea id="shippingAddress"  rows="4" cols="45"></textarea><br><br>
+
+   <label>Payment Method:</label><br>
+   <label for="creditCard"><input type="radio" name="payment" value="creditCard" id="creditCard"/>Credit Card</label><br>
+   <label for="payPal"><input type="radio" name="payment" value="payPal" id="payPal"/>PayPal</label><br>
+   <label for="bankTransfer"><input type="radio" name="payment" value="bankTransfer" id="bankTransfer"/>Bank Transfer</label><br><br>
+
+   <label>Delivery Speed:</label>
+   <select id="speedSelect">
+    <option value="standard">Standard</option>
+    <option value="express">Express</option>
+    <option value="sameday">Same Day</option>
+   </select>
+   <br><br>
+   <input type="submit" value="Place Order"/>
+</form>
+<div id="productOrderResult"></div>
+<script>
+    const productOrderForm=document.getElementById("productOrderForm");
+    productOrderForm.addEventListener('submit',function(event){
+        event.preventDefault();
+        const productName=document.getElementById("productName").value;
+        const quantity=document.getElementById("quantity").value;
+        const shippingAddress=document.getElementById("shippingAddress").value;
+        const payment=document.querySelector('input[name="payment"]:checked').value;
+        const deliverySpeed=document.getElementById("speedSelect").value;
+        console.log(shippingAddress)
+
+        const userInputValues=`<h2>Order Details</h2>
+        <p><strong>Product Name: </strong>${productName}<p>
+       <p><strong>Quantity: </strong>${quantity}</p>
+       <p><strong>Shipping Address: </strong>${shippingAddress}<p><strong>Payment Method: </strong>${payment}</p>
+       <p><strong>Delivery Speed: </strong>${deliverySpeed}</p>`
+       const divElement=document.getElementById("productOrderResult")
+       divElement.innerHTML=userInputValues;
+    })
+</script>
+
+   
+    
+</body>
+</html>

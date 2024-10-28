@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VA2_Assignment2</title>
+</head>
+<body>
+    <h1>User Waitlist Form</h1>
+    <form id="userWaitlistForm">
+
+    <label for="userName">Full Name:</label>
+    <input type="text" id="userName"/><br><br>
+
+    <label for="userPhoneNumber">Phone Number:</label>
+    <input type="tel" name="userPhoneNumber" id="userPhoneNumber" pattern="[0-9]{10}"/><br><br>
+    
+    <label for="emailInput">Email Id:</label>
+    <input type="email" id="emailInput"/><br><br>
+
+    <label>Gender:</label><br>
+    <label for="male"><input type="radio" name="gender" value="male" id="male"/>Male</label><br>
+    <label for="female"><input type="radio"  name="gender" value="female" id="female"/>Female</label><br>
+    <label for="others"><input type="radio"  name="gender" value="others" id="others"/>Others</label><br><br>
+
+    <label>Are you a college graduate?</label><br>
+    <label for="yes"><input type="radio" name="collegeGraduate" value="yes" id="yes"/>Yes</label><br>
+    <label for="no"><input type="radio" name="collegeGraduate" value="no" id="no"/>No</label><br>
+    <label for="dropout"><input type="radio" name="collegeGraduate" value="dropout" id="dropout"/>Dropout</label><br><br>
+
+    <label>Are you working anywhere full-time or part-time?</label><br>
+    <select id="workSelect">
+        <option value="workingFullTime">Working Full Time</option>
+        <option value="workingPartTime">Working Part Time</option>
+        <option value="notWorkingAnywhere">Not Working Anywhere</option>
+    </select><br><br>
+    <label for="learnWebDev">Why do you want to learn web development?;</label>
+    <textarea id="learnWebDev"rows="4"cols="45"></textarea><br><br>
+
+    <label>How did you come to know about us?:</label><br>
+    <label for="youtube"><input type="checkbox" name="platform" value="Youtube" id="youtube"/>Youtube</label><br>
+    <label for="instagram"><input type="checkbox" name="platform" value="instagram" id="instagram"/>Instagram</label><br>
+    <label for="linkedin"><input type="checkbox" name="platform" value="linkedin" id="linkedin"/>LinkedIn</label><br>
+    <label for="twitter"><input type="checkbox" name="platform" value="twitter" id="twitter"/>Twitter</label><br>
+    <label for="friends"><input type="checkbox" name="platform" value="friends" id="friends"/>Friends and Family</label><br>
+    <label for="other"><input type="checkbox" name="platform" value="other" id="other"/>Other</label><br>
+    <br>
+    <label for="confirmation"><input type="checkbox" id="confirmation"/> I confirm that all information in this form is factually true.</label><br><br> 
+    <input type="submit" value="Submit Deatils"/>
+   </form>
+   <div id="userWaitlistResult"></div>
+   <script>
+    const userWaitlistForm=document.getElementById("userWaitlistForm")
+    userWaitlistForm.addEventListener("submit",function(event){
+        event.preventDefault();
+        const userName= document.getElementById("userName").value;
+        const userPhoneNumber=document.getElementById("userPhoneNumber").value;
+        const emailInput=document.getElementById("emailInput").value;
+        const gender=document.querySelector('input[name="gender"]:checked').value;
+        const collegeGraduate=document.querySelector('input[name="collegeGraduate"]:checked').value;
+        const workSelect=document.getElementById("workSelect").value;
+        const learnWebDev=document.getElementById("learnWebDev").value;
+        const platform=document.querySelectorAll('input[name="platform"]:checked')
+        let selectedPlatform=[]
+        for( let i= 0; i<platform.length;i++){
+            selectedPlatform.push(platform[i].value);
+        }
+        const confirmation=document.querySelector('input[name="confirmation"]:checked')
+       
+        const userInputValues=`<h2>Details Submitted:</h2>
+        <p><strong>Name: </strong>${userName}</p>
+        <p><strong>Phone Number: </strong>${userPhoneNumber}</p>
+        <p><strong>Email ID: </strong>${emailInput}</p>
+        <p><strong>Gender: </strong>${gender}</p>
+            <p><strong>Are you a college graduate?:</strong> ${collegeGraduate}</p>
+            <p><strong>Why do you want to learn web development?:</strong> ${learnWebDev}</p>
+            <p><strong>How did you come to know about us?: </strong>${selectedPlatform.join(", ")} `
+                const divElement=document.getElementById("userWaitlistResult")
+                divElement.innerHTML=userInputValues;
+    })
+
+   </script>
+    
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Js</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+    <label for="optInCheckbox">Select checkbox to opt-in;</label>
+    <br>
+    <input type="checkbox" id="optInCheckbox"/>opt-In
+    <p id="optInResult"></p>
+     
+
+    <label>Choose pizza Toppings:</label>
+    <br>
+    <input  type="checkbox"name="toppings" value="pepporoni"/>Pepperoni
+    <input type="checkbox" name="toppings" value="olive"/>Olive
+    <input type="checkbox" name="toppings" value="mushrooms"/>Mushrooms
+    <p id="toppingsResult"></p>
+
+
+
+    <label>Choose your preferred programming languages:</label>
+    <br>
+    <input type="checkbox" name="languages" value="Javascript"/>Javascript<br>
+    <input type="checkbox" name="languages" value="Python"/>Python<br>
+    <input type="checkbox" name="languages" value="Java"/>Java<br>
+    <p id="langResult"></p>
+    
+    <script>
+        const optInCheckbox=document.getElementById("optInCheckbox");
+        const optInResult=document.getElementById("optInResult")
+        optInCheckbox.addEventListener("change",function(){
+            if(optInCheckbox.checked){
+                optInResult.textContent="you are subscribed"
+            }else{
+                optInResult.textContent=" "
+            }
+
+        })
+
+        const toppingCheckBoxes=document.getElementsByName("toppings");
+        const toppingsResult=document.getElementById("toppingsResult");
+
+        for(let i=0;i < toppingCheckBoxes.length;i++){
+            toppingCheckBoxes[i].addEventListener("change",function(){
+                const selectedToppings=[]
+
+                for(let j=0;j<toppingCheckBoxes.length;j++){
+                    if(toppingCheckBoxes[j].checked){
+                        selectedToppings.push(toppingCheckBoxes[j].value);
+                    }
+                }
+            
+                toppingsResult.innerHTML=`Selected toppings: ${selectedToppings.join(", ")}`;
+            });
+        }
+
+        const languagesCheckBoxes= document.getElementsByName("languages");
+        const langResult=document.getElementById("langResult");
+
+        for(let i = 0;i < languagesCheckBoxes.length ;i++ ){
+            languagesCheckBoxes[i].addEventListener("change", function(){
+
+                const selectedLanguages=[]
+                for(let j = 0;j < languagesCheckBoxes.length;j++){
+                    if(languagesCheckBoxes[j].checked){
+                        selectedLanguages.push(languagesCheckBoxes[j].value);
+
+                    }
+                }
+                langResult.textContent=`Selected Languages: ${selectedLanguages.join(", ")}`;
+            })
+        }
+
+    
+       
+
+
+    </script>
+
+
+    
+</body>
+</html>
