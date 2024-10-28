@@ -3,10 +3,13 @@
 A simple Vanilla JavaScript project that takes user input from multiple fields and displays a response based on the input. The project showcases basic DOM manipulation and conditional statements in JavaScript.
 
 ## Features
-- **Country Display:** Takes a country name input and displays it.
-- **Website Display:** Accepts a website name and displays it in a heading format.
-- **Student Status Check:** Asks if the user is a student and responds with "yes" or "no" based on input.
-- **Age Check:** Takes age input and checks if the user is an adult or a minor.
+- **Input Validation:** Checks for valid inputs and provides feedback for invalid entries.
+- **User-Friendly Interface:** Simple layout with clear labels and buttons for an intuitive user experience.
+- **Responsive Design:** Works well on various screen sizes, ensuring accessibility on mobile and desktop devices.
+
+
+## Usage
+To run this project locally:
 
 ## Technologies Used
 - HTML5
